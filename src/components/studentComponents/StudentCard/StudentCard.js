@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Card, CardTitle, CardText, CardImg, CardBody, CardSubtitle } from 'reactstrap';
-
-// function getStudentData(studentID) {
-//     let data = fetch('localhost:8050/students/getStudent/66c64ef3cca363b8da3e33e0')
-// }
+import { Button, Card, CardTitle, CardImg, CardBody, CardHeader, CardSubtitle } from 'reactstrap';
 
 export default function StudentCard() {
     const [data, setData] = useState([]);
@@ -23,7 +19,9 @@ export default function StudentCard() {
       width: '18rem'
     }}>
       <CardBody>
-        <CardImg src="https://picsum.photos/300/200" />
+        <CardHeader>
+          <CardImg src="https://picsum.photos/300/200" />
+        </CardHeader>
         <CardTitle>{data.name}</CardTitle>
         <CardSubtitle>{data.class}</CardSubtitle>
         <Button href={'/EditStudent/' + data._id}>Editar</Button>

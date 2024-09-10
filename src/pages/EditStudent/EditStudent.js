@@ -1,9 +1,30 @@
 import { useParams } from "react-router-dom"
-import { Form, FormGroup, Input, Label } from "reactstrap";
+import { Button, Form, FormGroup, Input, Label } from "reactstrap";
 import { searchStudent } from "../../helpers/studentHelpers/getStudentInfo";
 import { useEffect, useState } from "react";
 import './EditStudent.css';
+import { extractFormData } from "../../helpers/formHelpers/formHelpers";
 
+function submitStudentData(e) {
+    e.preventDefault();
+
+    let formBody = extractFormData(e.target);
+    console.debug(formBody);
+
+    let requestObject = {
+        headers: {
+            Accept: 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        },
+        method: 'PATCH',
+        redirect: 'follow',
+        body: JSON.stringify(formBody),
+        mode: 'cors'
+    }
+
+    fetch('/students/modifyStudent/' + e.target[0].value, requestObject);
+}
 
 export default function EditStudent () {
     const params = useParams();
@@ -18,22 +39,23 @@ export default function EditStudent () {
 
     
     return (
-        <Form style={{width: '80%'}}>
+        <Form style={{width: '80%'}} onSubmit={submitStudentData} method="update">
             <FormGroup>
+                <Input hidden name="studentID" value={studentData._id}></Input>
                 <Label>Nome</Label>
-                <Input defaultValue={studentData.name}></Input>
+                <Input name="name" defaultValue={studentData.name}></Input>
                 <Label>Email</Label>
-                <Input type="email" defaultValue={studentData.email}></Input>
+                <Input name="email" type="email" defaultValue={studentData.email}></Input>
                 <Label>Data de Nascimento</Label>
-                <Input type="date" defaultValue={studentData.birthDate}></Input>
+                <Input name="birthDate" type="date" defaultValue={studentData.birthDate}></Input>
                 <Label>Contato do Aluno</Label>
-                <Input defaultValue={studentData.contact}></Input>
+                <Input name="contact" defaultValue={studentData.contact}></Input>
                 <Label>Contato do Pai</Label>
-                <Input defaultValue={studentData.parentContact}></Input>
+                <Input name="parentContact" defaultValue={studentData.parentContact}></Input>
                 <Label>Endereço</Label>
-                <Input defaultValue={studentData.address}></Input>
-                
+                <Input name="address" defaultValue={studentData.address}></Input>
             </FormGroup>
+            <Button className="submit" type="submit">Salvar</Button>
         </Form>
     );
 }
