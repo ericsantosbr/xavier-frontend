@@ -11,7 +11,7 @@ export default function NavBar(args) {
                         <NavLink href="/ListStudents">Listar Estudantes</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/ListStudents">Listar Escolas</NavLink>
+                        <NavLink href="/ListSchools">Listar Escolas</NavLink>
                     </NavItem>
                 </Nav>
             </Collapse>

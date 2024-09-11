@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Button, Card, CardTitle, CardImg, CardBody, CardHeader, CardSubtitle } from 'reactstrap';
 
-export default function StudentCard() {
+export default function StudentCard(studentData) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
