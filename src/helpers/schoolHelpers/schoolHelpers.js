@@ -11,3 +11,19 @@ export async function getSchoolList() {
             return data
         });
 }
+    
+export async function getSchoolData(schoolID) {
+    return fetch('/schools/getSchool/' + schoolID)
+        .then((response) => response.json())
+        .then((data) => {
+            return data
+        });
+}
+
+export async function getSchoolClasses(schoolID) {
+    return fetch('/schools/getSchoolClasses/' + schoolID)
+        .then((response) => response.json())
+        .then((data) => {
+            return data
+        });
+}
