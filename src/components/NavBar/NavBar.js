@@ -7,9 +7,9 @@ export default function NavBar(args) {
             <NavbarBrand href="/">Xavier</NavbarBrand>
             <Collapse isOpen={true} navbar>
                 <Nav>
-                    <NavItem>
+                    {/* <NavItem>
                         <NavLink href="/ListStudents">Listar Estudantes</NavLink>
-                    </NavItem>
+                    </NavItem> */}
                     <NavItem>
                         <NavLink href="/ListSchools">Listar Escolas</NavLink>
                     </NavItem>

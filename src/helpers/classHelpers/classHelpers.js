@@ -7,7 +7,7 @@ export function getClassInfo (classID) {
 }
 
 export function getStudentsInClass (classID) {
-    return fetch('/classes/getSchoolClasses/' + classID)
+    return fetch('/classes/getStudentsInClass/' + classID)
         .then((response) => response.json())
         .then((data) => {
             return data

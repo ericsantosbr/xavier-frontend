@@ -1,19 +1,6 @@
-import React, { useState, useEffect } from 'react';
 import { Button, Card, CardTitle, CardImg, CardBody, CardHeader, CardSubtitle } from 'reactstrap';
 
 export default function StudentCard(studentData) {
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        // Fetch data from the backend
-        fetch('/students/getStudent/66c64ef3cca363b8da3e33e0')
-          .then((response) => response.json())
-          .then((data) => {
-            console.log(data);
-            setData(data);
-          });
-      }, []);
-
     return (
     <Card style={{
       width: '18rem'
@@ -22,9 +9,10 @@ export default function StudentCard(studentData) {
         <CardHeader>
           <CardImg src="https://picsum.photos/300/200" />
         </CardHeader>
-        <CardTitle>{data.name}</CardTitle>
-        <CardSubtitle>{data.class}</CardSubtitle>
-        <Button href={'/EditStudent/' + data._id}>Editar</Button>
+        <CardTitle>{studentData.StudentData.name}</CardTitle>
+        <CardSubtitle>{studentData.StudentData.class}</CardSubtitle>
+        <Button href={'/ViewStudent/' + studentData.StudentData._id}>Visualizar</Button>
+        <Button href={'/EditStudent/' + studentData.StudentData._id}>Editar</Button>
       </CardBody>
     </Card>
     );
