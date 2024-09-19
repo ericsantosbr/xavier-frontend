@@ -1,4 +1,4 @@
-import { Button, Card, CardTitle, CardImg, CardBody, CardHeader, CardSubtitle } from 'reactstrap';
+import { Button, Card, CardTitle, CardBody, CardHeader, CardSubtitle } from 'reactstrap';
 
 export default function ClassCard(props) {
   return (

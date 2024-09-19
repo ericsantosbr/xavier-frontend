@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import EditStudent from './pages/EditStudent/EditStudent';
 import ListStudents from './pages/ListStudents/ListStudents';
+import ViewStudent from './pages/ViewStudent/ViewStudent';
 import ListSchools from './pages/ListSchools/ListSchools';
 import SchoolDashboard from './pages/SchoolDashboard/SchoolDashboard';
 import ClassDashboard from './pages/ClassDashboard/ClassDashboard';
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
     element: <>Hello from the router</>
   },
   {
+    path: '/ViewStudent/:id',
+    element: <ViewStudent />
+  },
+  {
     path: '/EditStudent',
     element: () => { return redirect('/'); }
   },
@@ -24,10 +29,10 @@ const router = createBrowserRouter([
     path: '/EditStudent/:id',
     element: <EditStudent />
   },
-  {
-    path: '/ListStudents',
-    element: <ListStudents />
-  },
+  // {
+  //   path: '/ListStudents',
+  //   element: <ListStudents />
+  // },
   {
     path: '/ListSchools',
     element: <ListSchools />
