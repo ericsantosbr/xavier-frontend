@@ -1,3 +1,5 @@
+import { extractFormData } from "../formHelpers/formHelpers";
+
 export async function getStudentsInSchool(schoolID) {
     let schoolsSearchResult = await fetch('/schools/getStudentsInSchool/' + schoolID).then((data) => data.json());
 
@@ -26,4 +28,28 @@ export async function getSchoolClasses(schoolID) {
         .then((data) => {
             return data
         });
+}
+
+export async function submitNewSchool(e) {
+    e.preventDefault();
+
+    let formBody = extractFormData(e.target);
+
+    let requestObject = {
+        headers: {
+            'Accept': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        redirect: 'follow',
+        body: JSON.stringify(formBody),
+        mode: 'cors'
+    }
+
+    fetch('/schools/createSchool', requestObject).then(response => {
+        if (response.status === 200) {
+            window.location.href = '/ListSchools'
+        }
+    });
 }
