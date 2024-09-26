@@ -23,7 +23,11 @@ function submitStudentData(e) {
         mode: 'cors'
     }
 
-    fetch('/students/modifyStudent/' + e.target[0].value, requestObject);
+    fetch('/students/modifyStudent/' + e.target[0].value, requestObject).then((response) => {
+        if (response.status === 200 || response.status === 201) {
+            window.location.href = '/ViewStudent/' + formBody.studentID
+        }
+    });
 }
 
 export default function EditStudent () {
