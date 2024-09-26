@@ -1,4 +1,4 @@
-import { Col, Container, Row } from "reactstrap";
+import { Button, Col, Container, Row } from "reactstrap";
 
 export default function StudentInfo (data) {
     return (
@@ -17,6 +17,7 @@ export default function StudentInfo (data) {
                     <Row></Row>
                     <Row></Row>
                 </Col>
+                <Button href={'/EditStudent/' + data.studentData._id}>Editar</Button>
             </Col>
         </Container>
     );
