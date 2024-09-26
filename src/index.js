@@ -8,6 +8,7 @@ import ListSchools from './pages/ListSchools/ListSchools';
 import SchoolDashboard from './pages/SchoolDashboard/SchoolDashboard';
 import ClassDashboard from './pages/ClassDashboard/ClassDashboard';
 import CreateStudent from './pages/CreateStudent/CreateStudent';
+import CreateSchool from './pages/CreateSchool/CreateSchool';
 import reportWebVitals from './reportWebVitals';
 import NavBar from './components/NavBar/NavBar';
 import { RouterProvider, createBrowserRouter, redirect } from 'react-router-dom'
@@ -49,6 +50,10 @@ const router = createBrowserRouter([
     path: '/CreateStudent',
     element: <CreateStudent />
   },
+  {
+    path: '/CreateSchool',
+    element: <CreateSchool />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
